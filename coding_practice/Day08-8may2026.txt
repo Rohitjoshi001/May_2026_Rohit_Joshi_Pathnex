@@ -1,64 +1,92 @@
-Day 07 — Automating Cloud Infrastructure with Terraform & Ansible
-🔹 Ansible — Setup Nginx with Custom Config
-- name: Setup Nginx with Custom Config
+Day 08 — Introduction to Docker and CI/CD Pipelines
+🔹 Ansible — Install Docker Compose
+- name: Install Docker Compose
   hosts: all
   become: yes
   tasks:
-    - name: Install nginx
+    - name: Install dependencies
       yum:
-        name: nginx
+        name: "python3-pip"
         state: present
-    - name: Copy custom nginx.conf
-      copy:
-        src: nginx.conf
-        dest: /etc/nginx/nginx.conf
-    - name: Start nginx service
-      service:
-        name: nginx
-        state: started
-        enabled: yes
-🔹 Terraform — Provision EC2 with IAM Role
-resource "aws_iam_role" "ec2_role" {
-  name               = "pathnex_ec2_role"
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Principal = {
-          Service = "ec2.amazonaws.com"
-        }
-      },
-    ]
-  })
+    - name: Install docker-compose
+      pip:
+        name: docker-compose
+🔹 Terraform — EC2 with Security Group and EBS Volume
+resource "aws_security_group" "allow_ssh_http" {
+  name        = "allow_ssh_http"
+  description = "Allow SSH and HTTP access"
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
 
 resource "aws_instance" "pathnex_ec2" {
   ami           = "ami-0abcd1234abcd1234"
-  instance_type = "t2.medium"
-  iam_instance_profile = aws_iam_role.ec2_role.name
-  tags = {
-    Name = "Pathnex-EC2"
+  instance_type = "t3.medium"
+  security_groups = [aws_security_group.allow_ssh_http.name]
+
+  ebs_block_device {
+    device_name = "/dev/sdh"
+    volume_size = 30
   }
 }
-🔹 Kubernetes — ConfigMap and Secret Management
+🔹 Kubernetes — Service with NodePort
 apiVersion: v1
-kind: ConfigMap
+kind: Service
 metadata:
-  name: pathnex-config
-data:
-  app.properties: |
-    key=value
+  name: pathnex-service
+spec:
+  type: NodePort
+  selector:
+    app: pathnex-app
+  ports:
+    - protocol: TCP
+      port: 80
+      nodePort: 30007
+🔹 Jenkinsfile — Docker Build and Push
+pipeline {
+    agent any
+    stages {
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build('pathnex-app')
+                }
+            }
+        }
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    docker.withRegistry('https://docker.io', 'docker-credentials') {
+                        docker.image('pathnex-app').push('latest')
+                    }
+                }
+            }
+        }
+    }
+}
+🔹 GitLab CI/CD — Build & Push Docker Image
+stages:
+  - build
+  - push
 
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: pathnex-secret
-type: Opaque
-data:
-  password: cGF0aG5leHBhc3M=
-🔹 Shell Script — Archive Logs
-#!/bin/bash
-tar -czf /var/log/archived_logs.tar.gz /var/log/*.log
+build:
+  stage: build
+  script:
+    - docker build -t pathnex-app .
+
+push:
+  stage: push
+  script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
+    - docker push pathnex-app
