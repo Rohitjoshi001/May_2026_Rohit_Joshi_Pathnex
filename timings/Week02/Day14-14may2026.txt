@@ -1,0 +1,12 @@
+today's tasks
+2 hour - online sesion
+1 hour - Linux commmands
+1 hour - aws
+1 hour - speaking practice
+2 hour = docker
+3 hour = K8S revise
+
+~     
+
+tommorow's tasks
+k8s
