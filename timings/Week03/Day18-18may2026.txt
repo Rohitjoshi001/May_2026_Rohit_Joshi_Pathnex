@@ -1,0 +1,11 @@
+today's tasks
+3 hour - online sesion
+1 hour - commmands
+1 hour - speaking practice
+2 hour = revise topics like Kubernetes topics include Security topics include RBAC, Service Accounts, and Pod Security. Kubernetes also supports autoscaling through HPA. Deployment strategies such as Rolling Update, Blue-Green, and Canary deployments are also important. Common troubleshooting areas include CrashLoopBackOff, ImagePullBackOff, and Pending Pods, along with kubectl commands used for debugging and cluster management.
+3 hour = K8S practice on CLuster upgrade, Node group upgrade, Add ons upgrade  
+
+~     
+
+tommorow's tasks
+helm

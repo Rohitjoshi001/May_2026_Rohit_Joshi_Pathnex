@@ -1,0 +1,13 @@
+today's tasks
+3 hour - online sesion
+1 hour - Linux sommands
+1 hour - revise notes of previous 
+1 hour - speaking practice
+1 hour - revise topics like pods,container,deployment,architecture 
+2 hour - K8S practice
+3 hour - K8s practice
+
+~     
+
+tommorow's tasks
+k8s
