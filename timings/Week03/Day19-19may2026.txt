@@ -1,0 +1,11 @@
+today's tasks
+3 hour - online sesion
+1 hour - commmands
+1 hour - speaking practice
+2 hour = revise topics like Helm topics like Helm Architecture is the foundation of Helm that manages Charts, Releases, and Repositories; Helm Chart Structure defines how charts are organized using Chart.yaml, values.yaml, and templates; Helm Installation & Setup covers installing Helm CLI and connecting it to a Kubernetes cluster; Helm Basic Commands include install, upgrade, rollback, uninstall, and list operations; Helm Templating Engine uses Go templates to dynamically generate Kubernetes manifests; Values Management handles configuration using values.yaml and overrides via CLI or environment files; Helm Repositories manage storage and sharing of charts using repo commands; Helm Debugging Charts uses template, lint, and debug options to fix issues; Helm Dependencies (Subcharts) allow combining multiple charts into one application; Helm Hooks manage lifecycle events like pre-install and post-install for tasks such as migrations..
+3 hour = K8S practice on CLuster upgrade, Node group upgrade, Add ons upgrade with the help of Helm  
+
+~     
+
+tommorow's tasks
+helm
