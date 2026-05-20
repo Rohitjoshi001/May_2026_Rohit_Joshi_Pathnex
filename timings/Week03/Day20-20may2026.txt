@@ -1,0 +1,11 @@
+today's tasks
+3 hour - online sesion
+1 hour - commmands
+1 hour - speaking practice
+2 hour = revise topics like Argo CD main topics include ArgoCD Architecture, GitOps concepts, and understanding Git as the source of truth where Kubernetes always follows the configuration stored in Git. Important concepts include Desired State vs Actual State, ArgoCD components, Applications in ArgoCD, Sync Status, and Health Status. Other major topics are Manual Sync and Auto Sync, Self Healing, Drift Detection, Rollback in ArgoCD, and integration with Helm and Kubernetes.
+3 hour = todays video practice argocd  
+
+~     
+
+tommorow's tasks
+Terraform
