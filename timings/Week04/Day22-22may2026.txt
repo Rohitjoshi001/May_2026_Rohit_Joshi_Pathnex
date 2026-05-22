@@ -1,0 +1,10 @@
+today's tasks
+3 hour - online sesion
+1 hour - commmands
+1 hour - speaking practice
+2 hour = revise topics like providers, resources, variables, and outputs is essential because these are the building blocks of Terraform. Another critical topic is the Terraform state file and remote backend configuration using S3 and locking mechanisms, as they help Terraform track infrastructure safely in team environments. Version constraints are also important to avoid compatibility issues. In production projects, modules, count vs for_each, depends_on, and lifecycle rules are heavily used for reusable and controlled infrastructure management. Finally, concepts like Terraform import, workspaces, and CI/CD integration are very important for real-world DevOps practices and interviews. 
+3 hour = todays video practice terraform  
+~     
+
+tommorow's tasks
+Ansible
