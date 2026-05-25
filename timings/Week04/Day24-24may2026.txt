@@ -1,0 +1,11 @@
+today's tasks
+3 hour - online sesion
+1 hour - commmands
+1 hour - speaking practice
+2 hour = revise topics like Ansible is one of the most important DevOps automation tools used to configure and manage multiple servers automatically. The most important topics in Ansible are inventory, playbooks, modules, roles, variables, handlers, templates, and Ansible Vault. Inventory is used to store server details, while playbooks are YAML files that define automation tasks step by step. Modules like yum, apt, copy, service, and file are used to perform operations such as installing software, copying files, and starting services. Roles are very important in production because they organize large projects into reusable structures. Handlers are used to restart services only when changes happen, which makes automation efficient. Variables help make playbooks dynamic and reusable. Templates using Jinja2 allow dynamic configuration files. Ansible Vault is used to secure sensitive data like passwords and keys. Other important topics include ad-hoc commands, idempotency, tags, loops, conditionals, dynamic inventory, and error handling. In real DevOps environments, Ansible is mainly used for server configuration, Jenkins setup, Docker installation, Kubernetes node setup, application deployment, and CI/CD automation. For interviews and practical work, the most important concepts to master are playbooks, roles, modules, inventory, handlers, variables, and idempotency because these are heavily used in production environments.
+ 
+3 hour = todays video practice Ansible  
+~     
+
+tommorow's tasks
+CI/CD
